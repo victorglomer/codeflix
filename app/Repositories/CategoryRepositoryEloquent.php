@@ -4,14 +4,15 @@ namespace CodeFlix\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-
-use CodeFlix\Models\Categorias;
+use CodeFlix\Repositories\CategoryRepository;
+use CodeFlix\Models\Category;
+use CodeFlix\Validators\CategoryValidator;
 
 /**
- * Class CategoriasRepositoryEloquent
+ * Class CategoryRepositoryEloquent
  * @package namespace CodeFlix\Repositories;
  */
-class CategoriasRepositoryEloquent extends BaseRepository implements CategoriasRepository
+class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
     /**
      * Specify Model class name
@@ -20,7 +21,7 @@ class CategoriasRepositoryEloquent extends BaseRepository implements CategoriasR
      */
     public function model()
     {
-        return Categorias::class;
+        return Category::class;
     }
 
     

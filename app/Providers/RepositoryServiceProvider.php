@@ -28,7 +28,7 @@ class RepositoryServiceProvider extends ServiceProvider {
      */
     public function register() {
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
-        $this->app->bind(CategoriasRepository::class, CategoriasRepositoryEloquent::class);
+        $this->app->bind(\CodeFlix\Repositories\CategoryRepository::class, \CodeFlix\Repositories\CategoryRepositoryEloquent::class);
     }
 
 }

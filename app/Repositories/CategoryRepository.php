@@ -5,10 +5,10 @@ namespace CodeFlix\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface CategoriasRepository
+ * Interface CategoryRepository
  * @package namespace CodeFlix\Repositories;
  */
-interface CategoriasRepository extends RepositoryInterface
+interface CategoryRepository extends RepositoryInterface
 {
     //
 }

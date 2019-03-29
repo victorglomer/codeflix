@@ -5,16 +5,14 @@ namespace CodeFlix\Models;
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
-
-class Categorias extends Model implements TableInterface {
+class Category extends Model implements TableInterface {
 
     use Notifiable;
 
-    protected $fillable = ['id', 'nome'];
-
+    protected $fillable = [
+        'name',
+    ];
     /**
      * A list of headers to be used when a table is displayed
      *
@@ -36,8 +34,8 @@ class Categorias extends Model implements TableInterface {
             case '#id':
                 return $this->id;
             case 'Nome':
-                return $this->nome;
+                return $this->name;
         }
-    }
+    }    
 
 }

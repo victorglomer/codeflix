@@ -2,17 +2,17 @@
 
 namespace CodeFlix\Http\Controllers\Admin;
 
-use CodeFlix\Models\Categorias;
+use CodeFlix\Forms\CategoriasForm;
+use CodeFlix\Models\Category;
 use Illuminate\Http\Request;
 use CodeFlix\Http\Controllers\Controller;
-use CodeFlix\Repositories\CategoriasRepository;
-use CodeFlix\Forms\CategoriasForm;
+use CodeFlix\Repositories\CategoryRepository;
 
-class CategoriasController extends Controller {
+class CategoryController extends Controller {
 
     private $repository;
 
-    function __construct(CategoriasRepository $repository) {
+    public function __construct(CategoryRepository $repository) {
         $this->repository = $repository;
     }
 
@@ -22,8 +22,8 @@ class CategoriasController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $categorias = $this->repository->paginate();
-        return view('admin.categorias.index', compact('categorias'));
+        $categories = $this->repository->paginate();
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -33,10 +33,10 @@ class CategoriasController extends Controller {
      */
     public function create() {
         $form = \FormBuilder::create(CategoriasForm::class, [
-                    'url' => route('admin.categorias.store'),
+                    'url' => route('admin.category.store'),
                     'method' => 'POST',
         ]);
-        return view('admin.categorias.create', compact('form'));
+        return view('admin.category.create', compact('form'));
     }
 
     /**
@@ -54,68 +54,66 @@ class CategoriasController extends Controller {
         $this->repository->create(($data));
 
         $request->session()->flash('message', 'Categoria adicionada com sucesso');
-        return redirect()->route('admin.categorias.index');
+        return redirect()->route('admin.category.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \CodeFlix\Models\Categorias  $categorias
+     * @param  \CodeFlix\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorias $categorias) {
-        dd($categorias);
+    public function show(Category $category) {
+        return view('admin.category.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \CodeFlix\Models\Categorias  $categorias
+     * @param  \CodeFlix\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request) {
-
-        $categoria = $this->repository->find($request->categoria);
-//        dd($categoria);
-
-        $form = \FormBuilder::create(
-                        CategoriasForm::class, [
-                    'url' => route('admin.categorias.update', ['id' => $categoria->id]),
+    public function edit(Category $category) {
+        $form = \FormBuilder::create(CategoriasForm::class, [
+                    'url' => route('admin.category.update', ['category' => $category->id]),
                     'method' => 'PUT',
-                    'model' => $categoria,
+                    'model' => $category
         ]);
-        return view('admin.categorias.edit', compact('form'));
+        return view('admin.category.edit', compact('form'));
+
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CodeFlix\Models\Categorias  $categorias
+     * @param  \CodeFlix\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
         $form = \FormBuilder::create(CategoriasForm::class, [
-            'data' => ['id' => $id]
+                    'data' => ['id' => $id]
         ]);
-        if(! $form->isValid()) {
-            return redirect()->back()->withErrors($form->getErrors());
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
-        
-        $this->repository->update($form->getFieldValues(), $id);
-        $request->session()->flash('message', 'Categoria editada com sucesso');
-        return redirect()->route('admin.categorias.index');
-        
+        $data = $form->getFieldValues();
+        $this->repository->update($data, $id);
+        $request->session()->flash('message', 'Category successfully updated');
+        return redirect()->route('admin.category.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CodeFlix\Models\Categorias  $categorias
+     * @param  \CodeFlix\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorias $categorias) {
-        //
+    public function destroy(Request $request, Category $category) {
+        $this->repository->delete($category->id);
+        $request->session()->flash('message', 'Category successfully deleted');
+        return redirect()->route('admin.category.index');
     }
 
 }

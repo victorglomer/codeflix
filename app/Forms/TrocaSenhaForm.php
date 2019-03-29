@@ -9,13 +9,13 @@ class TrocaSenhaForm extends Form
     public function buildForm()
     {
         $this
-            ->add('senha1', 'password' , [
+            ->add('password', 'password' , [
                 'label' => 'Senha',
-                'rules' => 'required|min:2',
+                'rules' => 'required|min:6|confirmed',
             ])
-            ->add('senha2', 'password', [
+            ->add('password_confirmation', 'password', [
                 'label' => 'Confirme sua senha',
-                'rules' => 'required|min:2',
+                'rules' => 'required|min:6',
             ]);
     }
 }

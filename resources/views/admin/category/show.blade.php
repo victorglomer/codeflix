@@ -4,23 +4,29 @@
 <div class="container">
     <div class="row">
         <h3>
-            Ver usuário
+            Dados da categoria
         </h3>
         <?php $iconEdit = Icon::create('pencil'); ?>
-        {!! Button::primary($iconEdit)->asLinkTo(route('admin.users.edit', ['user' => $user->id])) !!}
+        {!! Button::primary($iconEdit)->asLinkTo(route('admin.category.edit', ['user' => $category->id])) !!}
 
         <?php $iconDelete = Icon::create('remove'); ?>
-        {!! Button::danger($iconDelete)
-        ->asLinkTo(route('admin.users.destroy', ['user' => $user->id]))
-        ->addAttributes(['onClick' => "event.preventDefault();document.getElementById(\"form-delete\").submit();"
-        ]
-        )
+        {!! 
+        
+        Button::danger($iconDelete)
+        ->asLinkTo(route('admin.category.destroy', ['user' => $category->id]))
+        ->addAttributes(
+            [
+                'onClick' => "
+                event.preventDefault();
+                if(confirm(\"Apagar mesmo?\")){document.getElementById(\"form-delete\").submit();}return false;
+                "
+            ])
         !!}
 
         <?php
         $formDelete = FormBuilder::plain([
                     'id' => 'form-delete',
-                    'route' => ['admin.users.destroy', 'user' => $user->id],
+                    'route' => ['admin.category.destroy', 'user' => $category->id],
                     'method' => 'DELETE',
                     'style' => 'display:none',
                 ])
@@ -32,15 +38,11 @@
             <tbody>
                 <tr>
                     <th scope="row">#</th>
-                    <td>{{$user->id}}</td>
+                    <td>{{$category->id}}</td>
                 </tr>
                 <tr>
                     <th scope="row">Nome</th>
-                    <td>{{$user->name}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Email</th>
-                    <td>{{$user->email}}</td>
+                    <td>{{$category->name}}</td>
                 </tr>
             </tbody>
         </table>

@@ -30,27 +30,14 @@ Route::get('email-verification/check/{token}', 'EmailVerificationController@getV
 
 Route::get('/home', 'HomeController@index');
 
-//Route::group([
-//    'prefix' => 'admin',
-//    'as' => 'admin.',
-//    ],
-//    function() {
-//    Route::get('/', function(){
-//        return "AREA ADM";
-//    });
-//    });
-//        Route::name('logout')->get('logout', 'Auth\LoginController@logout');
-//        Route::name('logout')->post('logout', 'Auth\LoginController@logout');
-
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
     'namespace' => 'Admin\\'
         ], function () {
 
-//    Route::post('users.updatesenha', 'UsersController@updateTrocaSenha');    
-    Route::name('users.updatesenha')->post('updatesenha', 'UsersController@updatesenha');    
-    
+    Route::name('users.updatesenha')->post('updatesenha', 'UsersController@updatesenha');
+
     Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');
     Route::post('login', 'Auth\LoginController@login');
 
@@ -63,13 +50,10 @@ Route::group([
         });
 
         Route::resource('users', 'UsersController');
-        Route::resource('categorias', 'CategoriasController');
+        Route::resource('category', 'CategoryController');
     });
-    
+
     Route::get('troca-senha', 'UsersController@trocaSenha');
     Route::post('admin.users.updatesenha', 'UsersController@updateTrocaSenha');
 
-//    Route::get('troca-senha', function () {
-//        //
-//    })->middleware('TrocouSenha');
 });

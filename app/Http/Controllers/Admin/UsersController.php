@@ -5,8 +5,8 @@ namespace CodeFlix\Http\Controllers\Admin;
 use Bootstrapper\Form;
 use CodeFlix\Forms\UserForm;
 use CodeFlix\Forms\TrocaSenhaForm;
-use CodeFlix\Models\User;
 use Illuminate\Http\Request;
+use CodeFlix\Models\User;
 use CodeFlix\Http\Controllers\Controller;
 use CodeFlix\Repositories\UserRepository;
 
@@ -84,7 +84,7 @@ class UsersController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user) {
-        
+
         $form = \FormBuilder::create(UserForm::class, [
                     'url' => route('admin.users.update', ['user' => $user->id]),
                     'method' => 'PUT',
@@ -132,19 +132,31 @@ class UsersController extends Controller {
     }
 
     public function updatesenha(Request $request) {
-        if ($request->senha1 == $request->senha2) {
-            $data = array(
-                'password' => bcrypt($request->senha1),
-                'troca_senha' => 1
-            );
-            $this->repository->update($data, \Auth::id());
-            
-            $request->session()->flash('message', 'Senha alterada com sucesso');
-            return redirect()->route('admin.users.index');
-        } else {
-            $request->session()->flash('danger', 'Senhas não conferem');
-            return redirect('/admin/troca-senha');
+//        if ($request->password == $request->password_confirmation) {
+//            $data = array(
+//                'password' => bcrypt($request->password),
+//                'troca_senha' => 1
+//            );
+//            $this->repository->update($data, \Auth::id());
+//            
+//            $request->session()->flash('message', 'Senha alterada com sucesso');
+//            return redirect()->route('admin.users.index');
+//        } else {
+//            $request->session()->flash('danger', 'Senhas não conferem');
+//            return redirect('/admin/troca-senha');
+//        }
+
+        $form = \FormBuilder::create(TrocaSenhaForm::class);
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
+        $data = $form->getFieldValues();
+        $dados['troca_senha'] = 1;
+        $dados['password'] = bcrypt($data['password']);
+        $this->repository->update($dados, \Auth::id());
+
+        $request->session()->flash('message', 'Senha alterada com sucesso');
+        return redirect()->route('admin.users.index');
     }
 
     /**

@@ -9,6 +9,6 @@ class CategoriasForm extends Form
     public function buildForm()
     {
         $this
-            ->add('nome', 'text');
+            ->add('name', 'text');
     }
 }

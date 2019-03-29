@@ -25,7 +25,7 @@
                         'title' => 'Usuários'
                     ],
                     [
-                        'link' => route('admin.categorias.index'),
+                        'link' => route('admin.category.index'),
                         'title' => 'Categorias'
                     ],
                 ];
