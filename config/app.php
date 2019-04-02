@@ -240,6 +240,7 @@ return [
         'Navbar' => Bootstrapper\Facades\Navbar::class,
         'Navigation' => Bootstrapper\Facades\Navigation::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+        'MediaObject' => Bootstrapper\Facades\MediaObject::class,
         
 /*
  * bootstrapper

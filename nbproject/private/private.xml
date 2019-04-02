@@ -3,25 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="CodeFlix">
-            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/categorias/index.blade.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/CategoriasRepositoryEloquent.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/series/edit.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/create.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/CategoryController.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/factories/ModelFactory.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/config/app.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/EmailVerificationController.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/CategoriasRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2019_03_29_175853_create_series_table.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/routes/web.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/show.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/series/show.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/SeriesController.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/UserRepositoryEloquent.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/.env</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/.idea/workspace.xml</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/index.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/SerieRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/DatabaseSeeder.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Video.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/layouts/admin.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Category.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/Auth/LoginController.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/UsersController.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Providers/RepositoryServiceProvider.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/TrocaSenhaForm.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Serie.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/vendor/laravel-user-verification/email.blade.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/CategoriasController.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Kernel.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Middleware/TrocouSenha.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/UsersTableSeeder.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Middleware/RedirectIfAuthenticated.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/UserRepositoryEloquent.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Controller.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/.env</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/categorias/edit.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2019_03_30_135142_create_videos_table.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/VideosTableSeeder.php</file>
         </group>
     </open-files>
 </project-private>
