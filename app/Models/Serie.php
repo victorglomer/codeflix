@@ -2,16 +2,16 @@
 
 namespace CodeFlix\Models;
 
+use CodeFlix\Media\SeriePaths;
 use Illuminate\Database\Eloquent\Model;
 use Bootstrapper\Interfaces\TableInterface;
 
 
 class Serie extends Model implements TableInterface
 {
-    
-    protected $table = 'series';
+    use SeriePaths;
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description', 'thumb'];
 
 
     /**
@@ -19,7 +19,7 @@ class Serie extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#id', 'Título', 'Descrição'];
+        return ['#id'];
     }
 
     /**
@@ -31,10 +31,6 @@ class Serie extends Model implements TableInterface
         switch ($header) {
             case '#id':
                 return $this->id;
-            case 'Título':
-                return $this->title;
-            case 'Descrição':
-                return $this->description;
         }
     }
 

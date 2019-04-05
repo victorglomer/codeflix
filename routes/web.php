@@ -52,7 +52,20 @@ Route::group([
         Route::resource('users', 'UsersController');
         Route::resource('category', 'CategoryController');
         Route::resource('series', 'SeriesController');
+        Route::name('series.thumb_asset')
+            ->get('series/{serie}/thumb_asset', 'SeriesController@thumbAsset');
+        Route::name('series.thumb_small_asset')
+            ->get('series/{serie}/thumb_small_asset', 'SeriesController@thumbSmallAsset');
+
+        Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
+            Route::name('relations.create')->get('{video}/relations', 'VideoRelationsController@create');
+            Route::name('relations.store')->post('{video}/relations', 'VideoRelationsController@store');
+        });
+        
         Route::resource('videos', 'VideosController');
+        
+        
+        
     });
 
     Route::get('troca-senha', 'UsersController@trocaSenha');

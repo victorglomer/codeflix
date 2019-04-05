@@ -17,7 +17,7 @@ class CreateSeriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('image')->nullable();
+            $table->string('thumb')->nullable();
             $table->timestamps();
         });
     }

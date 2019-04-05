@@ -2,6 +2,7 @@
 
 namespace CodeFlix\Models;
 
+use CodeFlix\Media\VideoPaths;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -10,6 +11,7 @@ use Bootstrapper\Interfaces\TableInterface;
 class Video extends Model implements Transformable, TableInterface {
 
     use TransformableTrait;
+    use VideoPaths;
 
     protected $fillable = [
         'title', 'description', 'duration', 'published', 'serie_id'

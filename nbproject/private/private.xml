@@ -5,32 +5,41 @@
         <group name="CodeFlix">
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/series/edit.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/create.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/SeriesTableSeeder.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/CategoryController.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/factories/ModelFactory.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/config/app.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2019_03_29_175853_create_series_table.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/routes/web.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/CategoriesTableSeeder.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/SerieForm.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/VideoRepositoryEloquent.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/VideosController.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/VideoForm.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/show.blade.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/series/show.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/SeriesController.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/UserRepositoryEloquent.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/.env</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/storage/app/.gitignore</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/.idea/workspace.xml</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/.env</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/category/index.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Repositories/SerieRepository.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2014_10_12_000000_create_users_table.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Video.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/layouts/admin.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/VideoRelationForm.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/VideoRelationsController.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Category.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/config/filesystems.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/Auth/LoginController.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Controllers/Admin/UsersController.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Providers/RepositoryServiceProvider.php</file>
-            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/TrocaSenhaForm.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Models/Serie.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/TrocaSenhaForm.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/vendor/laravel-user-verification/email.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2019_04_01_132505_create_category_video_table.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/UsersTableSeeder.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/resources/views/admin/videos/show.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/Applications/MAMP/htdocs/curso/api/app/Forms/UserForm.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/migrations/2019_03_30_135142_create_videos_table.php</file>
             <file>file:/Applications/MAMP/htdocs/curso/api/database/seeds/VideosTableSeeder.php</file>
         </group>
