@@ -8,11 +8,13 @@ use CodeFlix\Http\Controllers\Controller;
 use CodeFlix\Repositories\VideoRepository;
 use CodeFlix\Forms\VideoForm;
 
-class VideosController extends Controller {
+class VideosController extends Controller
+{
 
     private $repository;
 
-    public function __construct(VideoRepository $repository) {
+    public function __construct(VideoRepository $repository)
+    {
         $this->repository = $repository;
     }
 
@@ -21,7 +23,8 @@ class VideosController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $videos = $this->repository->paginate();
         return view('admin.videos.index', compact('videos'));
     }
@@ -31,10 +34,11 @@ class VideosController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         $form = \FormBuilder::create(VideoForm::class, [
-                    'url' => route('admin.videos.store'),
-                    'method' => 'POST'
+            'url' => route('admin.videos.store'),
+            'method' => 'POST'
         ]);
 
         return view('admin.videos.create', compact('form'));
@@ -43,10 +47,11 @@ class VideosController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $form = \FormBuilder::create(VideoForm::class);
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
@@ -61,44 +66,47 @@ class VideosController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  \CodeFlix\Models\Video  $video
+     * @param \CodeFlix\Models\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video) {
+    public function show(Video $video)
+    {
         return view('admin.videos.show', compact('video'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \CodeFlix\Models\Video  $video
+     * @param \CodeFlix\Models\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $video) {
+    public function edit(Video $video)
+    {
         $form = \FormBuilder::create(VideoForm::class, [
-                    'url' => route('admin.videos.update', ['video' => $video->id]),
-                    'method' => 'PUT',
-                    'model' => $video,
+            'url' => route('admin.videos.update', ['video' => $video->id]),
+            'method' => 'PUT',
+            'model' => $video,
         ]);
-        
+
         return view('admin.videos.edit', compact('form'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \CodeFlix\Models\Video  $video
+     * @param \Illuminate\Http\Request $request
+     * @param \CodeFlix\Models\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $form = \FormBuilder::create(VideoForm::class);
-        if(! $form->isValid()){
+        if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
         $data = $form->getFieldValues();
         $this->repository->update($data, $id);
-        
+
         $request->session()->flash('message', 'Vídeo editado com sucesso');
         return redirect()->back();
     }
@@ -106,14 +114,20 @@ class VideosController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CodeFlix\Models\Video  $video
+     * @param \CodeFlix\Models\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Video $video, Request $request) {
+    public function destroy(Video $video, Request $request)
+    {
         $this->repository->delete($video->id);
-        
-        $request->session->flash('message', 'Vídeo excluído com sucesso');
+
+        $request->session()->flash('message', 'Vídeo excluído com sucesso');
         return view('admin.videos.index');
+    }
+
+    public function videoFileAsset(Video $video)
+    {
+        return response()->download($video->video_file_path);
     }
 
 }

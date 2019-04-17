@@ -9,7 +9,7 @@
                 'disabled' => !isset($video) ? true : false
             ],[
                 'title' => 'Vídeos e Imagem',
-                'link' => '#',
+                'link' => !isset($video) ? '' : route('admin.videos.uploads.create', ['video' => $video->id]),
                 'disabled' => !isset($video) ? true : false
             ],
         ];

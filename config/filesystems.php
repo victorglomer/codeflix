@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('STORAGE_DRIVER'),
+    'default' => 's3', //removido .env pois estava com algum cache, trazendo sempre videos_local mesmo alterado para s3 no .env
 
     /*
     |--------------------------------------------------------------------------

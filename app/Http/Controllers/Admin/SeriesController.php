@@ -101,6 +101,7 @@ class SeriesController extends Controller
     {
         return response()->download($serie->thumb_path);
     }
+
     public function thumbSmallAsset(Serie $serie)
     {
         return response()->download($serie->thumb_small_path);

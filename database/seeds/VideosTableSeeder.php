@@ -21,13 +21,15 @@ class VideosTableSeeder extends Seeder
 
         $repository = app(VideoRepository::class);
         $collectionThumbs = $this->getThumbs();
+        $collectionVideos = $this->getVideos();
 
-        factory(CodeFlix\Models\Video::class, 100)
+        factory(CodeFlix\Models\Video::class, 2)
             ->create()
             ->each(function ($video) use (
-                $series, $categories, $repository, $collectionThumbs
+                $series, $categories, $repository, $collectionThumbs, $collectionVideos
             ) {
                 $repository->uploadThumb($video->id, $collectionThumbs->random());
+                $repository->uploadVideoFile($video->id, $collectionVideos->random());
 
                 $video->categories()->attach($categories->random(4)->pluck('id'));
                 $num = rand(1, 3);
@@ -51,4 +53,19 @@ class VideosTableSeeder extends Seeder
             )
         ]);
     }
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    protected function getVideos()
+    {
+        return new \Illuminate\Support\Collection([
+            new UploadedFile(
+                storage_path('app/files/faker/videos/teste.mp4'),
+                'teste.mp4'
+            )
+        ]);
+    }
+
 }

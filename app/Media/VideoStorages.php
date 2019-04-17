@@ -28,8 +28,19 @@ trait VideoStorages
         return config('filesystems.default');
     }
 
-    protected function getAbsolutePath(FilesystemAdapter $storage, $fileRelativePath) {
-        return $storage->getDriver()->getAdapter()->applyPathPrefix($fileRelativePath);
+    protected function getAbsolutePath(FilesystemAdapter $storage, $fileRelativePath)
+    {
+        return $this->isLocalDriver() ?
+            $storage->getDriver()->getAdapter()->applyPathPrefix($fileRelativePath) :
+            $storage->url($fileRelativePath);
+
+    }
+
+    public function isLocalDriver()
+    {
+        $driver = config("filesystems.disks.{$this->getDiskDriver()}.driver");
+        return $driver == 'local';
+
     }
 
 }
