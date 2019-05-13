@@ -27,10 +27,15 @@ class CreateUserAdminData extends Migration {
      * @return void
      */
     public function down() {
-        $user = \CodeFlix\Models\User::where('email', '=', env('ADMIN_DEFAULT_EMAIL'))->first();
-        if ($user instanceof \CodeFlix\Models\User) {
-            $user->delete();
-        }
+//        $user = \CodeFlix\Models\User::where('email', '=', env('ADMIN_DEFAULT_EMAIL'))->first();
+//        if ($user instanceof \CodeFlix\Models\User) {
+//            $user->delete();
+//        }
+
+        $table = (new User())->getTable();
+        \DB::table($table)
+            ->where('email', '=', env('ADMIN_DEFAULT_EMAIL', 'victor@hugo.com'))
+            ->delete();
     }
 
 }

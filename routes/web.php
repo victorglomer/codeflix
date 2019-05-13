@@ -67,6 +67,10 @@ Route::group([
 
         Route::name('videos.video_file_asset')
             ->get('videos/{video}/video_file_asset', 'VideosController@videoFileAsset');
+        Route::name('videos.thumb_asset')
+            ->get('videos/{video}/thumb_asset', 'VideosController@thumbAsset');
+        Route::name('videos.thumb_small_asset')
+            ->get('videos/{video}/thumb_small_asset', 'VideosController@thumbSmallAsset');
 
         Route::resource('videos', 'VideosController');
         

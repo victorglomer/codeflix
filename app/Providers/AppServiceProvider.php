@@ -16,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Video::updated(function ($video) {
            if(!$video->completed){
-               if ($video->thumb != null && $video->file != null) {
+               if ($video->thumb != null &&
+                   $video->file != null &&
+                   $video->duration != null
+               ) {
                    $video->completed = 1;
                    $video->save();
                }

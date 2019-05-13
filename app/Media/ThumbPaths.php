@@ -33,7 +33,7 @@ trait ThumbPaths
 
     public function getThumbSmallPathAttribute()
     {
-        if ($this->thumb_relative) {
+        if ($this->thumb_small_relative) {
             return $this->getAbsolutePath($this->getStorage(), $this->thumb_small_relative);
         }
         return false;

@@ -57,6 +57,8 @@ class VideoUploadsController extends Controller
             $this->repository->uploadVideoFile($id, $request->file('file'));
         }
 
+        $this->repository->update(['duration' => $request->get('duration')], $id);
+
 
         $request->session()->flash('message', 'Upload realizado com sucesso');
         return redirect()->route('admin.videos.uploads.create', ['video' => $id]);

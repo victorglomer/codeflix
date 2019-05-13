@@ -22,11 +22,9 @@ trait SeriePaths
 
     public function getThumbSmallAssetAttribute()
     {
-//        return $this->isLocalDriver() ?
-//            route('admin.series.thumb_small_asset', ['serie' => $this->id]) :
-//            $this->thumb_small_path;
-
-        return $this->thumb_small_path;
+        return $this->isLocalDriver() ?
+            route('admin.series.thumb_small_asset', ['serie' => $this->id]) :
+            $this->thumb_small_path;
     }
 
     public function getThumbDefaultAttribute()

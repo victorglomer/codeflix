@@ -117,9 +117,14 @@ class VideosController extends Controller
      * @param \CodeFlix\Models\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Video $video, Request $request)
+    public function destroy($id)
     {
-        $this->repository->delete($video->id);
+        // $this->repository->withTrashed()->find(1); // busca inclusive excluídos
+        // $this->repository->onlyTrashed()->find(1); // busca apenas excluídos
+        // $video->restore() // remove deleted_at, torna ativo
+
+
+        $this->repository->delete($id);
 
         $request->session()->flash('message', 'Vídeo excluído com sucesso');
         return view('admin.videos.index');
@@ -128,6 +133,16 @@ class VideosController extends Controller
     public function videoFileAsset(Video $video)
     {
         return response()->download($video->video_file_path);
+    }
+
+    public function thumbAsset(Video $video)
+    {
+        return response()->download($video->thumb_path);
+    }
+
+    public function thumbSmallAsset(Video $video)
+    {
+        return response()->download($video->thumb_small_path);
     }
 
 }

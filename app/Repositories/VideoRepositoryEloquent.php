@@ -22,7 +22,7 @@ class VideoRepositoryEloquent extends BaseRepository implements VideoRepository
     {
         $model =  parent::update($attributes, $id);
         //atualização M->M
-        if(isset($model['categories'])){
+        if(isset($attributes['categories'])){
             //sync = método que sincroniza adicionando, removendo ou deixando relacionamentos
             $model->categories()->sync($attributes['categories']);
         }

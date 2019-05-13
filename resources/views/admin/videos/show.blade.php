@@ -41,6 +41,18 @@
                     <td>{{$video->id}}</td>
                 </tr>
                 <tr>
+                    <th scope="row">Thumb</th>
+                    <td>
+                        <img src="{{$video->thumb_asset}}" width="512px">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Download</th>
+                    <td>
+                        <a href="{{$video->video_file_asset}}" target="_blank">Download</a>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">Título</th>
                     <td>{{$video->title}}</td>
                 </tr>
